@@ -1,0 +1,33 @@
+import re
+
+print("Chatbot: Hello! I am a Rule-Based Chatbot.")
+print("Type 'exit' to end the conversation.\n")
+
+def chatbot_response(user_input):
+    user_input = user_input.lower()
+
+    if re.search(r'hi|hello|hey', user_input):
+        return "Hello! How can I assist you today?"
+
+    elif re.search(r'how are you', user_input):
+        return "I am doing well, thank you for asking."
+
+    elif re.search(r'your name', user_input):
+        return "I am a simple rule-based chatbot created using Python."
+
+    elif re.search(r'help', user_input):
+        return "I can answer basic questions. Try asking about my name or greeting me."
+
+    elif re.search(r'bye|exit', user_input):
+        return "Goodbye! Have a great day."
+
+    else:
+        return "I'm sorry, I didn't understand that. Could you please rephrase?"
+
+while True:
+    user_input = input("You: ")
+    response = chatbot_response(user_input)
+    print("Chatbot:", response)
+
+    if user_input.lower() in ["bye", "exit"]:
+        break
